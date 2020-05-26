@@ -24,3 +24,30 @@ function query($string)
 
     return $baskom;
 }
+
+function tambah($string)
+{
+    global $connect;
+    $id = htmlspecialchars($string['id']);
+    $name = htmlspecialchars($string['name']);
+    $level = htmlspecialchars($string['level']);
+    $email = htmlspecialchars($string['email']);
+    $image = htmlspecialchars($string['image']);
+
+
+    $query = ("INSERT INTO user VALUES (null,'$id','$name','$level','$email','$image')");
+
+
+    // mysqli_query($connect, $query);
+    // echo mysqli_error($connect);
+
+    if (!mysqli_query($connect, $query)) {
+        echo "Error found>> " . mysqli_error($connect);
+    }
+    return mysqli_affected_rows($connect);
+}
+
+function hapus()
+{
+    global $connect;
+}
