@@ -59,6 +59,7 @@ function hapus($string)
     return mysqli_affected_rows($connect);
 }
 
+
 function update($string)
 {
     $connect = koneksi();

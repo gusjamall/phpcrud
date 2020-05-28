@@ -1,6 +1,7 @@
 <?php
 require 'function.php';
 
+
 $id = $_GET['id'];
 
 // $query = query("DELETE FROM user WHERE id=$id");

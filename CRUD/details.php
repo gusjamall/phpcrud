@@ -7,6 +7,7 @@ $id = $_GET['id'];
 $query = query("SELECT * FROM user WHERE id=$id");
 // var_dump($query);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

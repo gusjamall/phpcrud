@@ -14,6 +14,7 @@ $hasil = query("SELECT * FROM user");
 
 <body>
 
+
     <h1>Data Pelanggan</h1>
 
     <a href="add.php">Add User</a>

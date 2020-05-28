@@ -1,6 +1,7 @@
 <?php
 require "function.php";
 
+
 if (isset($_POST["add"])) {
 
     if (tambah($_POST) > 0) {
