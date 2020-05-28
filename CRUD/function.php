@@ -1,12 +1,16 @@
 <?php
 
-//connect to db
-$connect = mysqli_connect("localhost", "root", "", "pelanggan");
+function koneksi()
+{
+    return mysqli_connect("localhost", "root", "", "pelanggan");
+}
 
 function query($string)
 {
     //declare global variable
-    global $connect;
+    $connect = koneksi();
+    // global $connect;
+
     //query db
     $hasil = mysqli_query($connect, $string);
     //prepare free baskom
@@ -27,7 +31,7 @@ function query($string)
 
 function tambah($string)
 {
-    global $connect;
+    $connect = koneksi();
     $id = htmlspecialchars($string['id']);
     $name = htmlspecialchars($string['name']);
     $level = htmlspecialchars($string['level']);
@@ -38,16 +42,40 @@ function tambah($string)
     $query = ("INSERT INTO user VALUES (null,'$id','$name','$level','$email','$image')");
 
 
-    // mysqli_query($connect, $query);
-    // echo mysqli_error($connect);
-
     if (!mysqli_query($connect, $query)) {
         echo "Error found>> " . mysqli_error($connect);
     }
     return mysqli_affected_rows($connect);
 }
 
-function hapus()
+function hapus($string)
 {
-    global $connect;
+    $connect = koneksi();
+
+    $query = ("DELETE FROM user WHERE id=$string");
+
+    mysqli_query($connect, $query);
+
+    return mysqli_affected_rows($connect);
+}
+
+function update($string)
+{
+    $connect = koneksi();
+    $nomor = $string['nomor'];
+    $id = htmlspecialchars($string['id']);
+    $name = htmlspecialchars($string['name']);
+    $level = htmlspecialchars($string['level']);
+    $email = htmlspecialchars($string['email']);
+    $image = htmlspecialchars($string['image']);
+
+    $query = "UPDATE user SET id='$id', name='$name', level='$level' , email='$email',image='$image' where nomor='$nomor'";
+
+    // mysqli_query($connect, $query);
+    if (!mysqli_query($connect, $query)) {
+        echo "Error found>> " . mysqli_error($connect);
+    }
+    return mysqli_affected_rows($connect);
+    // UPDATE `user` SET `level` = 'Gold' WHERE `user`.`nomor` = 9;
+
 }

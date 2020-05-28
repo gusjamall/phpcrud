@@ -20,28 +20,19 @@ $query = query("SELECT * FROM user WHERE id=$id");
 
     <h1>User Details</h1>
 
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>Image</th>
-            <th>Nama</th>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Level</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <td><img src="img/<?= $query["image"]; ?>" alt=""></td>
-            <td><?= $query["name"]; ?></td>
-            <td><?= $query["id"]; ?></td>
-            <td><?= $query["email"]; ?></td>
-            <td><?= $query["level"] ?></td>
-            <td><a href="">Save</a> |
-                <a href="index.php">Cancel</a> |
-                <a href="">Delete</a>
-            </td>
-        </tr>
-    </table>
-
+    <ul>
+        <li><img src="img/<?= $query["image"]; ?>" alt=""></li>
+        <li><?= $query["name"]; ?></li>
+        <li><?= $query["id"]; ?></li>
+        <li><?= $query["email"]; ?></li>
+        <li><?= $query["level"] ?></li>
+        <li>
+            <a href="update.php?id=<?= $id ?>">Update</a> |
+            <a href="index.php">Cancel</a> |
+            <a href="delete.php?id=<?= $id ?>" onclick="return confirm('hapus ga?')" ;>Delete</a>
+        </li>
+        </li>
+    </ul>
 </body>
 
 </html>

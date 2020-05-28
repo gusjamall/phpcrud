@@ -30,8 +30,8 @@ $hasil = query("SELECT * FROM user");
             <tr>
                 <td><?= $i; ?>.</td>
                 <td>
-                    <a href="details.php?id=<?= $has["id"]; ?>">Details</a> /
-                    <a href="">Delete</a>
+                    <a href="details.php?id=<?= $has["id"]; ?>">Details</a>
+
                 </td>
                 <td><img src="img/<?= $has["image"]; ?>"></td>
                 <td><?= $has["name"] ?></td>

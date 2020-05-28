@@ -2,7 +2,6 @@
 require "function.php";
 
 if (isset($_POST["add"])) {
-    // var_dump($_POST);
 
     if (tambah($_POST) > 0) {
         echo " <script>
@@ -40,10 +39,10 @@ if (isset($_POST["add"])) {
                 <label for="level">Level : <input type="text" name="level" required></label>
             </li>
             <li>
-                <label for="level">Email : <input type="text" name="email" required></label>
+                <label for="email">Email : <input type="text" name="email" required></label>
             </li>
             <li>
-                <label for="level">Image : <input type="text" name="image" required></label>
+                <label for="image">Image : <input type="text" name="image" required></label>
             </li>
             <li><button type="submit" name="add">Save</button></li>
         </ul>
